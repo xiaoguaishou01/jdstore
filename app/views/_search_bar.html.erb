@@ -1,0 +1,87 @@
+<div class="row">
+    <div class="col-sm-9 col-lg-8 col-lg-offset-2">
+      <%= form_tag search_questions_path, method: :get, class: 'questions-search-form'  do %>
+        <div class="input-group input-group-lg">
+          <input type="text" class="form-control" name="query_string" value="<%= params[:query_string] %>" placeholder="美国大学排名...">
+          <span class="input-group-btn">
+            <button type="submit" class="btn btn-danger">
+              <span class="glyphicon glyphicon-search"></span>
+            </button>
+          </span>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+</body>
+<section class="jk-slider">
+    <div id="carousel-example" class="carousel slide" data-ride="carousel">
+  <ol class="carousel-indicators">
+    <li data-target="#carousel-example" data-slide-to="0" class="active"></li>
+    <li data-target="#carousel-example" data-slide-to="1"></li>
+    <li data-target="#carousel-example" data-slide-to="2"></li>
+  </ol>
+
+  <div class="carousel-inner">
+    <div class="item active">
+      <a href="#"><img src="https://image.shutterstock.com/z/stock-photo-waffle-cone-with-roses-bouquet-on-pink-background-flat-lay-top-view-474873631.jpg" /></a>
+      	<div class="hero">
+        <hgroup>
+            <h1>花漾</h1>
+            <h3>花漾与你不期而遇 </h3>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged</p>
+        </hgroup>
+
+      </div>
+    </div>
+    <div class="item">
+      <a href="#"><img src="https://images.pexels.com/photos/128945/pexels-photo-128945.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb" /></a>
+      <div class="hero">
+        <hgroup>
+            <h1>花漾</h1>
+            <h3>只愿和你携手到老！ </h3>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged</p>
+        </hgroup>
+
+      </div>
+    </div>
+    <div class="item">
+      <a href="#"><img src="https://images.pexels.com/photos/302588/pexels-photo-302588.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb" /></a>
+      <div class="hero">
+        <hgroup>
+            <h1>花漾</h1>
+            <h3>爱不是无尽的等待，一束鲜花一颗真心！</h3>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged</p>
+        </hgroup>
+
+      </div>
+    </div>
+  </div>
+
+  <a class="left carousel-control" href="#carousel-example" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left"></span>
+  </a>
+  <a class="right carousel-control" href="#carousel-example" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right"></span>
+  </a>
+</div>
+
+</section>
+<div class="row">
+  <% @products.each do |product| %>
+    <div class="col-xs-6 col-md-4">
+      <%= link_to product_path(product) do %>
+      <div class="product-item">
+      <div class="pi-img-wrapper">
+        <% if product.image.present? %>
+          <%= image_tag(product.image.medium.url, class: "img-responsive") %>
+        <% else %>
+          <%= image_tag("http://placehold.it/200x200&text=No Pic", class: "thumbnail") %>
+        <% end %>
+      <% end %>
+      <%= product.title %> <div class="pi-price">￥ <%= product.price %></div>
+    </div>
+    </div>
+    </div>
+  <% end %>
+</div>

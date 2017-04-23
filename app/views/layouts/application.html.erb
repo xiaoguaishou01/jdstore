@@ -6,6 +6,7 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
   </head>
 
   <body>
@@ -15,9 +16,8 @@
         </div>
         <div class="row">
 
-        <div id="bootstrap-touch-slider" class="carousel bs-slider slide  control-round indicators-line" data-ride="carousel" data-pause="hover" data-interval="5000" >
-        </div>
-            <%= render "common/flashes" %>
+
+            <%#= render "common/flashes" %>
             <%= yield %>
         </div>
 

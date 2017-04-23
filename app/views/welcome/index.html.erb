@@ -1,53 +1,57 @@
-<section class="jk-slider">
-    <div id="carousel-example" class="carousel slide" data-ride="carousel">
+<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
   <ol class="carousel-indicators">
-    <li data-target="#carousel-example" data-slide-to="0" class="active"></li>
-    <li data-target="#carousel-example" data-slide-to="1"></li>
-    <li data-target="#carousel-example" data-slide-to="2"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
   </ol>
 
-  <div class="carousel-inner">
+  <div class="carousel-inner" role="listbox">
     <div class="item active">
-      <a href="#"><img src="https://image.shutterstock.com/z/stock-photo-waffle-cone-with-roses-bouquet-on-pink-background-flat-lay-top-view-474873631.jpg" /></a>
-      	<div class="hero">
-        <hgroup>
-            <h1>花漾</h1>
-            <h3>花漾与你不期而遇 </h3>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged</p>
-        </hgroup>
-
+      <img src="https://image.shutterstock.com/z/stock-photo-waffle-cone-with-roses-bouquet-on-pink-background-flat-lay-top-view-474873631.jpg" alt="...">
+      <div class="carousel-caption">
+        <p>11 英寸 MacBook Air 充电一次可运行长达 9 小时，而 13 英寸机型则可运行长达 12 小时。</p>
       </div>
     </div>
     <div class="item">
-      <a href="#"><img src="https://cdn.pixabay.com/photo/2016/11/18/14/56/beautiful-1835116_960_720.jpg" /></a>
-      <div class="hero">
-        <hgroup>
-            <h1>花漾</h1>
-            <h3>只愿和你携手到老！ </h3>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged</p>
-        </hgroup>
+      <img src="https://images.pexels.com/photos/128945/pexels-photo-128945.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb" alt="...">
 
+      <div class="carousel-caption">
+        <p>无论是什么任务，配备 Intel HD Graphics 5000 图形处理器的第四代 Intel Core 处理器都能应对自如。</p>
       </div>
     </div>
     <div class="item">
-      <a href="#"><img src="https://cdn.pixabay.com/photo/2016/11/18/18/32/bloom-1836315_960_720.jpg" /></a>
-      <div class="hero">
-        <hgroup>
-            <h1>花漾</h1>
-            <h3>爱不是无尽的等待，一束鲜花一颗真心！</h3>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged</p>
-        </hgroup>
-
+      <img src="https://images.pexels.com/photos/302588/pexels-photo-302588.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb" alt="...">
+      <div class="carousel-caption">
+        <p>有了新一代 802.11ac 技术，MacBook Air 令 Wi-Fi 速度超越极限。</p>
       </div>
     </div>
   </div>
 
-  <a class="left carousel-control" href="#carousel-example" data-slide="prev">
-    <span class="glyphicon glyphicon-chevron-left"></span>
-  </a>
-  <a class="right carousel-control" href="#carousel-example" data-slide="next">
-    <span class="glyphicon glyphicon-chevron-right"></span>
-  </a>
-</div>
+    <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
 
-</section>
+<div class="row">
+  <% @products.each do |product| %>
+    <div class="col-xs-6 col-md-4">
+      <%= link_to product_path(product) do %>
+      <div class="product-item">
+      <div class="pi-img-wrapper">
+        <% if product.image.present? %>
+          <%= image_tag(product.image.medium.url, class: "img-responsive") %>
+        <% else %>
+          <%= image_tag("http://placehold.it/200x200&text=No Pic", class: "thumbnail") %>
+        <% end %>
+      <% end %>
+      <%= product.title %> <div class="pi-price">￥ <%= product.price %></div>
+    </div>
+    </div>
+    </div>
+  <% end %>
+</div>

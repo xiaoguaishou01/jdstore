@@ -40,6 +40,7 @@ gem 'letter_opener', group: :development
 gem 'aasm'
 gem 'figaro'
 gem 'fog'
+gem 'ransack'
 
 
 group :development, :test do
@@ -61,4 +62,4 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 group :production do
   gem 'pg'
-end 
+end
