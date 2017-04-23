@@ -6,7 +6,7 @@ set :repo_url, "git@github.com:xiaoguaishou01/jdstore.git"
 set :branch, 'story6-mogai'
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
-set :deploy_to, '/home/apps/blog'
+set :deploy_to, '/home/apps/jdstore'
 # Default deploy_to directory is /var/www/my_app_name
 # set :deploy_to, "/var/www/my_app_name"
 
